@@ -1,0 +1,240 @@
+* {
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #000000, #0b0a0c);
+  height: 100vh;
+  overflow: visible;
+  position: relative;
+}
+
+
+
+
+.WIP_Text {
+ font-size: 0.86rem;     
+     font-weight: normal;
+  color: #ff00c8;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+
+  bottom: 0;
+position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+     text-align: center;
+       padding: 40px 0;
+
+         display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.Credits {
+  font-size: 0.8rem;
+  font-weight: normal;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+
+  position: fixed;          /* stays on screen */
+  bottom: 0;                /* full bottom */
+  left: 50%;                /* center horizontally */
+  transform: translateX(-50%);
+  text-align: center;
+
+  padding: 10px 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+         /* above everything */
+}
+
+
+   
+
+.center-square {
+  width: 85vmin;
+  height: 65vmin;
+  background: #0e0c0c;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 30;
+  border-radius: 1%;
+  border: 3px solid  #9900ff;
+  animation: pulseShadows 0.33s infinite; /* 3 pulses per second */
+}
+
+
+/* GLOW OUTLINE EFFECT */
+.center-square::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  border: 3px solid  #9900ff;
+  opacity: 1;
+  transform: scale(1);
+  animation: outlinePulse 1.5s infinite;
+}
+
+@keyframes outlinePulse {
+  0% {
+    transform: scale(1.01);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2); /* expands outward */
+    opacity: 0;             /* fades out */
+  }
+}
+
+
+/* For the extra info and DNI + social media links */
+
+.center-square::after {
+  content: "";
+  position: absolute;
+  bottom: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  height: 20%;                     /* proportional height */
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+
+  border-radius: 10px;             /* smooth, even edges */
+  border: 3px solid #3b264d; /* normal blue outline */
+
+  pointer-events: none;
+}
+
+
+
+
+
+/* PFP CIRCLE */
+.pfp {
+  width: 16vmin;          /* size of the circle */
+  height: 16vmin;
+  border-radius: 50%;     /* makes it a circle */
+  position: absolute;
+  top: -6vmin;            /* moves it above the box */
+  left: 50%;
+  transform: translateX(-50%);
+  border: 3px solid #9900ff; /* normal blue outline */
+  object-fit: cover;      /* keeps the image clean */
+
+
+   -webkit-user-drag: none;
+
+  pointer-events: none;
+}
+
+
+
+
+.text {
+  position: absolute;
+  top: 11vmin;
+  left: 50%;
+      color: white;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 80%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.text h1 {
+  font-size: 3vmin;   /* username auto-resizes */
+}
+
+.text p {
+  font-size: 1.8vmin; /* description auto-resizes */
+  opacity: 0.46;
+  margin-top: 0vmin;
+}
+
+
+
+/* container: keep as flex so left/right align, but relative for absolute divider */
+.bottom-bar {
+  position: absolute;
+  bottom: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  height: 12%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1vmin;
+  z-index: 5;
+  box-sizing: border-box;
+
+
+  align-items: flex-end;   /* move children upward */
+  padding-top: 5vmin;      /* optional: fine-tune vertical spacing */
+
+
+}
+
+/* left and right are fixed-width columns so they never push the divider */
+.left,
+.right {
+   
+  flex: 0 0 45%;        /* fixed 45% width each */
+  min-width: 0;         /* allow content to shrink and wrap inside */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4vmin;
+  color: white;
+ 
+}
+
+/* Title: never wrap, ellipsis if too long */
+.topTextWarning {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: clamp(1.4vmin, 1.4vmin + 0.2vw, 2.2vmin);
+  font-weight: 600;
+  line-height: 1.2;
+  height: 90%;
+  color: #fff;
+}
+
+/* Description: allow wrapping only inside left column */
+.bottomTextWarning {
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  font-size: clamp(1.3vmin, 1.7vmin + 0.2vw, 2.0vmin);
+  font-weight: 500;
+  line-height: 1.1;
+  margin-top: 0.35vmin;
+  color: rgba(255,255,255,0.9);
+}
+
+
+
+/* ensure right column content doesn't overlap divider */
+.right { align-items: flex-end; text-align: right; }
+
+/* small screens: reduce column widths so content fits */
+@media (max-width: 700px) {
+  .left, .right { flex: 0 0 48%; }
+  .bottom-bar { height: auto; padding: 1.2vmin; }
+}
+
+

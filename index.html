@@ -1,0 +1,91 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="policies_style.css" /> <!-- INCLUDE IN EVERY PAGE! -->
+
+
+      <title>CoolDude's Portfolio</title>
+    <link rel="icon" type="image/png" href="assets/personal/mikuWebsiteIcon.jpg">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+
+<div class="center-square">
+  <img src="assets/personal/noPfp.png" class="pfp">
+  <div class="text">
+    <h1 id="username">!CoolDude</h1>
+    <p>veri cool dev and silly goober :3</p>
+  </div>
+
+  <!-- NEW bottom bar content -->
+  <div class="bottom-bar">
+    <div class="left">
+      <div class="topTextWarning">✨ Pls do not interact with me if u</div>
+      <div class="bottomTextWarning">
+        racist, homophobic, bigoted, a zoophile, a pedophile, "AI Artist",
+        Banned/Blocked, or toxic
+      </div>
+    </div>
+
+  
+
+    <div class="right">
+      <!-- your icons -->
+    </div>
+  </div>
+
+</div> <!-- ← CLOSE .center-square HERE -->
+
+
+
+<!-- other -->
+<div class="left-fixed-info">
+  <div class="version-text">v0.0.5</div>
+  <a href="privacy.html" class="privacy-link">Privacy Policy</a>
+</div>
+
+
+
+   <h1 class="Credits">© 2025–2026 AggelosAlt3. All rights reserved. </h1>
+
+ <h1 class="WIP_Text">I built this from scratch with HTML and Javascript! :3</h1> 
+
+
+
+
+
+<!-- other-->
+ 
+<div class="left-fixed-info">
+  <div class="version-text">v0.0.5</div>
+  <a href="privacy.html" class="privacy-link">Privacy Policy</a>
+</div>
+
+
+<script>
+  const names = ["!CoolDude", "@AggelosAlt3", "!CoolDude"];
+  let index = 0;
+
+  const username = document.getElementById("username");
+
+  setInterval(() => {
+    index = (index + 1) % names.length;
+    username.textContent = names[index];
+  }, 2000); // change every 2 seconds
+</script>
+
+
+
+
+</body>
+</html>

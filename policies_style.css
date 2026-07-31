@@ -1,0 +1,31 @@
+/* Container for version + privacy link */
+.left-fixed-info {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* tighter spacing since it's a link now */
+  z-index: 9999;
+}
+
+/* Version text */
+.version-text {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+/* Privacy link (looks like normal text link) */
+.privacy-link {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.9rem;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.privacy-link:hover {
+  color: #38bdf8;
+  transform: translateX(2px);
+}
