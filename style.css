@@ -8,29 +8,24 @@
 body {
   background: linear-gradient(135deg, #000000, #0b0a0c);
   height: 100vh;
-  overflow: visible;
   position: relative;
+  overflow: hidden;
 }
 
-
-
-
 .WIP_Text {
- font-size: 0.86rem;     
-     font-weight: normal;
+  font-size: 0.86rem;
+  font-weight: normal;
   color: #ff00c8;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-
   bottom: 0;
-position: absolute;
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
-     text-align: center;
-       padding: 40px 0;
-
-         display: flex;
+  text-align: center;
+  padding: 40px 0;
+  display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
 
 .Credits {
@@ -38,25 +33,18 @@ position: absolute;
   font-weight: normal;
   color: #ffffff;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-
-  position: fixed;          /* stays on screen */
-  bottom: 0;                /* full bottom */
-  left: 50%;                /* center horizontally */
+  position: fixed;
+  bottom: 0;
+  left: 50%;
   transform: translateX(-50%);
   text-align: center;
-
   padding: 10px 0;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
-         /* above everything */
 }
 
-
-   
-
+/* MAIN SQUARE */
 .center-square {
   width: 85vmin;
   height: 65vmin;
@@ -66,13 +54,15 @@ position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 30;
-  border-radius: 1%;
-  border: 3px solid  #9900ff;
-  animation: pulseShadows 0.33s infinite; /* 3 pulses per second */
+
+  /* FIXED */
+  border-radius: 12px;
+  border: 3px solid #9900ff;
+
+  animation: pulseShadows 0.33s infinite;
 }
 
-
-/* GLOW OUTLINE EFFECT */
+/* GLOW OUTLINE */
 .center-square::before {
   content: "";
   position: absolute;
@@ -80,8 +70,11 @@ position: absolute;
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: inherit;
-  border: 3px solid  #9900ff;
+
+  /* FIXED */
+  border-radius: 12px;
+  border: 3px solid #9900ff;
+
   opacity: 1;
   transform: scale(1);
   animation: outlinePulse 1.5s infinite;
@@ -93,14 +86,12 @@ position: absolute;
     opacity: 1;
   }
   100% {
-    transform: scale(1.2); /* expands outward */
-    opacity: 0;             /* fades out */
+    transform: scale(1.2);
+    opacity: 0;
   }
 }
 
-
-/* For the extra info and DNI + social media links */
-
+/* BOTTOM INFO BOX */
 .center-square::after {
   content: "";
   position: absolute;
@@ -108,46 +99,40 @@ position: absolute;
   left: 50%;
   transform: translateX(-50%);
   width: 95%;
-  height: 20%;                     /* proportional height */
+  height: 20%;
   background: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(4px);
 
-  border-radius: 10px;             /* smooth, even edges */
-  border: 3px solid #3b264d; /* normal blue outline */
+  /* FIXED */
+  border-radius: 12px;
+  border: 3px solid #3b264d;
 
   pointer-events: none;
 }
-
-
-
-
 
 /* PFP CIRCLE */
 .pfp {
-  width: 16vmin;          /* size of the circle */
+  width: 16vmin;
   height: 16vmin;
-  border-radius: 50%;     /* makes it a circle */
+  border-radius: 50%;
   position: absolute;
-  top: -6vmin;            /* moves it above the box */
+  top: -6vmin;
   left: 50%;
   transform: translateX(-50%);
-  border: 3px solid #9900ff; /* normal blue outline */
-  object-fit: cover;      /* keeps the image clean */
 
+  /* FIXED */
+  border: 3px solid #9900ff;
 
-   -webkit-user-drag: none;
-
+  object-fit: cover;
+  -webkit-user-drag: none;
   pointer-events: none;
 }
-
-
-
 
 .text {
   position: absolute;
   top: 11vmin;
   left: 50%;
-      color: white;
+  color: white;
   transform: translateX(-50%);
   text-align: center;
   width: 80%;
@@ -155,18 +140,16 @@ position: absolute;
 }
 
 .text h1 {
-  font-size: 3vmin;   /* username auto-resizes */
+  font-size: 3vmin;
 }
 
 .text p {
-  font-size: 1.8vmin; /* description auto-resizes */
+  font-size: 1.8vmin;
   opacity: 0.46;
   margin-top: 0vmin;
 }
 
-
-
-/* container: keep as flex so left/right align, but relative for absolute divider */
+/* BOTTOM BAR */
 .bottom-bar {
   position: absolute;
   bottom: 3%;
@@ -181,28 +164,21 @@ position: absolute;
   z-index: 5;
   box-sizing: border-box;
 
-
-  align-items: flex-end;   /* move children upward */
-  padding-top: 5vmin;      /* optional: fine-tune vertical spacing */
-
-
+  align-items: flex-end;
+  padding-top: 5vmin;
 }
 
-/* left and right are fixed-width columns so they never push the divider */
 .left,
 .right {
-   
-  flex: 0 0 45%;        /* fixed 45% width each */
-  min-width: 0;         /* allow content to shrink and wrap inside */
+  flex: 0 0 45%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 0.4vmin;
   color: white;
- 
 }
 
-/* Title: never wrap, ellipsis if too long */
 .topTextWarning {
   white-space: nowrap;
   overflow: hidden;
@@ -210,11 +186,9 @@ position: absolute;
   font-size: clamp(1.4vmin, 1.4vmin + 0.2vw, 2.2vmin);
   font-weight: 600;
   line-height: 1.2;
-  height: 90%;
   color: #fff;
 }
 
-/* Description: allow wrapping only inside left column */
 .bottomTextWarning {
   white-space: normal;
   overflow-wrap: break-word;
@@ -226,15 +200,12 @@ position: absolute;
   color: rgba(255,255,255,0.9);
 }
 
+.right {
+  align-items: flex-end;
+  text-align: right;
+}
 
-
-/* ensure right column content doesn't overlap divider */
-.right { align-items: flex-end; text-align: right; }
-
-/* small screens: reduce column widths so content fits */
 @media (max-width: 700px) {
   .left, .right { flex: 0 0 48%; }
   .bottom-bar { height: auto; padding: 1.2vmin; }
 }
-
-
